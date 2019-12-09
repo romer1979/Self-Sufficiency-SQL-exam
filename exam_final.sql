@@ -47,8 +47,8 @@ ORDER BY
 --5
 
 SELECT 
-	state,
-	CAST(AVG(avg_math_4_score) as DECIMAL(12,2)) Average_Score
+	state AS bottom_10_states,
+	ROUND(AVG(avg_math_4_score),2) Average_Score
 
 FROM
 	naep
@@ -76,7 +76,7 @@ WHERE
 
 SELECT   
 	state AS below_average_states_y2000, 
-	avg_math_4_score
+	ROUND(avg_math_4_score, 2) Average_Score
 FROM 
 	naep
 WHERE 
@@ -85,7 +85,8 @@ WHERE
 --8
 
 SELECT   
-	state AS scores_missing_y2000
+	state AS scores_missing_y2000,
+	ROUND(avg_math_4_score, 2) Average_Score
 FROM 
 	naep
 WHERE 
